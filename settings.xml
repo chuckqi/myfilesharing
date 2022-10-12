@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <!--<proxies>
+    <proxy>
+      <id>proxy01</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy01.ariba.com</host>
+      <port>8080</port>
+      <nonProxyHosts>*.ariba.com|*.sap.corp|localhost</nonProxyHosts>
+    </proxy>
+  </proxies>-->
+
+  <localRepository>/Users/c5284415/Disk/D/programefile/study/ApacheMaven/REPOSITORY/</localRepository>
+  <!--<offline>true</offline>-->
+  <!-- mirrors so we can control the access of artifacts and avoid going to the internet for artifact metadata -->
+  <mirrors>
+    <mirror>
+      <id>devmirror-aws</id>
+      <url>https://repo.cobalt.ariba.com:443/artifactory/libs-release/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+
+    <!--<mirror>
+      <id>devmirror-cobalt</id>
+      <url>https://repo.cobalt.ariba.com:443/artifactory/plugins-release/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>-->
+
+    <!--<mirror>
+      <id>devmirror-aliyun</id>
+      <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>-->
+
+    <mirror>
+      <id>devmirror-aws</id>
+      <url>https://repo.cobalt.ariba.com:443/artifactory/libs-release-local/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+  
+  <activeProfiles>
+    <activeProfile>minervaRelease</activeProfile>
+    <!--<activeProfile>SMBase</activeProfile>
+    <activeProfile>SMHana</activeProfile>
+    <activeProfile>developer.build</activeProfile>-->
+  </activeProfiles>
+  <profiles>
+    <!--Minerva profile-->
+    <profile>
+      <id>minervaRelease</id>
+      <activation> <activeByDefault>true</activeByDefault> </activation>
+      <repositories>
+        <repository>
+          <id>libRelease</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/libs-release/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>libReleaseLocal</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/libs-release-local/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>libSnapshot</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/libs-snapshot/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>pluginsRelease</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/plugins-release/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>pluginsSnapshot</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/plugins-snapshot/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>remoteRepos</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/remote-repos/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+
+        <repository>
+          <id>libThirdparty</id>
+          <url>https://repo.cobalt.ariba.com:443/artifactory/libs-ariba-thirdparty/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+
+
+
+  </profiles>
+  <!-- plugin groups define where to search for a matching plugin -->
+  <pluginGroups>
+    <pluginGroup>ariba.devtools</pluginGroup>
+    <pluginGroup>com.sap.ldi</pluginGroup>
+    <pluginGroup>com.plugin</pluginGroup>
+  </pluginGroups>
+</settings>
